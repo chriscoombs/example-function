@@ -1,0 +1,54 @@
+{
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "AWS_XRAY_CONTEXT_MISSING=LOG_ERROR AWS_REGION=ap-southeast-2 node -e 'require(\"./src/index\").handler(null).then(success => console.log(`\rSUCCESS\r${JSON.stringify(success)}`)).catch(error => console.error(`\rError\r${JSON.stringify(error)}`))'",
+    "pack": "npx webpack --target node --output-library main --output-library-target commonjs2",
+    "zip": "zip -j dist/function dist/main.js",
+    "package": "npm run pack -- --mode production && npm run zip",
+    "package:dev": "npm run pack -- --mode development && npm run zip"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.373.0",
+    "aws-xray-sdk": "^2.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^23.6.0",
+    "jest-runner-eslint": "^0.7.1",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "rules": {
+      "no-console": "off"
+    }
+  },
+  "jest-runner-eslint": {
+    "cliOptions": {
+      "fix": true
+    }
+  },
+  "jest": {
+    "projects": [
+      {
+        "displayName": "test"
+      },
+      {
+        "displayName": "lint",
+        "runner": "jest-runner-eslint",
+        "testMatch": [
+          "<rootDir>/src/**/*.js",
+          "<rootDir>/tests/**/*.js"
+        ],
+        "watchPlugins": [
+          "jest-runner-eslint/watch-fix"
+        ]
+      }
+    ]
+  }
+}
