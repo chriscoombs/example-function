@@ -10,17 +10,17 @@
     "package:dev": "npm run pack -- --mode development && npm run zip"
   },
   "dependencies": {
-    "aws-sdk": "^2.373.0",
-    "aws-xray-sdk": "^2.1.0"
+    "aws-sdk": "^2.1031.0",
+    "aws-xray-sdk": "^3.3.4"
   },
   "devDependencies": {
-    "eslint": "^5.10.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "jest": "^23.6.0",
-    "jest-runner-eslint": "^0.7.1",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2"
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "jest": "^27.3.1",
+    "jest-runner-eslint": "^1.0.0",
+    "webpack": "^5.64.1",
+    "webpack-cli": "^4.9.1"
   },
   "eslintConfig": {
     "extends": "airbnb-base",

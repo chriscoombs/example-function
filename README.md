@@ -30,8 +30,8 @@ Whilst the Lambda containers ship with the aws-sdk, version changes have caused 
 
 ```
 "dependencies": {
-  "aws-sdk": "^2.373.0",
-  "aws-xray-sdk": "^2.1.0"
+  "aws-sdk": "^2.1031.0",
+  "aws-xray-sdk": "^3.3.4"
 }
 ```
 
